@@ -60,7 +60,7 @@ where:
 or 
 
 ```sh
-$ python proof_problem_generation.py DOMAIN_REQUIRE_COPPA
+$ python proof_problem_COPPA.py DOMAIN_REQUIRE_COPPA
 ```
 where:
 - DOMAIN_REQUIRE_COPPA: is the domain for which we want to determine if it should comply with COPPA
