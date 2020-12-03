@@ -10,7 +10,11 @@ The core of the repository relies in the 'Scripts_and_Data' folder. The key scri
 
 ## Setup
 
-To setup, clone this repository, create a Python 3 virtual environment and run pip install -r requirements.txt. Note that you may have to run pip3 instead of pip, depending on how Python is setup on your system.
+To setup, clone this repository, create a Python 3 virtual environment and run the following command to install the package required.
+```sh
+pip install -r requirements.txt.
+```
+Note that you may have to run pip3 instead of pip, depending on how Python is setup on your system.
 
 To obtain the proof we employed General Architecture for Proof Theory (GAPT). You can download the lastest release and the user manual [here](https://www.logic.at/gapt/). Later we provide the sequence of commands required to generate a proof from the output of the scripts using GAPT.
 GAPT requires Java to correctly run. You can install it as follow (for Linux):
