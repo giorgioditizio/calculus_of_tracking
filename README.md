@@ -24,7 +24,7 @@ We provide a sample of a OpenWPM database obtained from WebCensus [here](https:/
 
 The command to execute is:
 ```sh
-$ python formal_model_extraction.py MITIGATION_NAME NUMBER_WEBSITES NEW/OLD
+$ python formal_model_extraction_sqlite.py MITIGATION_NAME NUMBER_WEBSITES NEW/OLD
 ```
 where:
 - MITIGATION_NAME: identify the mitigation to apply for the instantiation of the predicates. Options available are: disconnect, ghostery, adblock, elep, and privacybadger for the Disconnect, Ghostery, AdBlock Plus, AdBlock Plus w/ EasyList & EasyPrivacy, and Privacy Badger mitigations respectively.
