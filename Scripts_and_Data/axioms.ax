@@ -1,0 +1,106 @@
+%----IncludeW rule
+fof(icw,axiom,
+(
+    ! [W,W1] : (includeContent(W,W1) => link(W,W1))
+)
+).
+
+%----RedirectW
+fof(rw,axiom,
+(
+    ! [W,W1] : (redirect(W,W1) => link(W,W1))
+)
+).
+
+%----Redirect
+fof(r_cookie,axiom,
+(
+    ! [W,W1] : (redirect_cookie(W,W1) => link_cookie(W,W1))
+)
+).
+
+%----Include
+fof(ic_cookie,axiom,
+(
+    ! [W,W1] : (includeContent_cookie(W,W1) => link_cookie(W,W1))
+)
+).
+
+%----AccessToW
+fof(aw,axiom,
+( 
+	! [W,W1] : ((link(W,W1) & ~ block_requests(W1)) => access(W,W1))
+)
+).
+
+%----AccessTo
+fof(a_cookie,axiom,
+( 
+	! [W,W1] : ((link_cookie(W,W1) & ~ block_requests(W1)) => access_cookie(W,W1))
+)
+).
+
+%----PropagateAccess
+fof(pa,axiom,
+( 
+	! [W,W1,W2] : ((access(W,W1) & access(W1,W2)) => access(W,W2))
+)
+).
+
+
+%----3rdpartyTracking
+fof(tp,axiom,
+( 
+	! [W,W1] : ((visit(W) & access(W,W1) & ~ block_tp_cookie(W1)) => knows(W1,W))
+)
+).
+
+
+%----ImpInc
+fof(iic_cookie,axiom,
+(
+    ! [W,W1] : (includeContent_cookie(W,W1) => includeContent(W,W1))
+)
+).
+
+%----ImpRed
+fof(ir_cookie,axiom,
+(
+    ! [W,W1] : (redirect_cookie(W,W1) => redirect(W,W1))
+)
+).
+
+%----Sync
+fof(syn,axiom,
+( 
+	! [W,W1] : ((access_cookie(W,W1) & ~ block_tp_cookie(W1)) => cookie_sync(W,W1))
+)
+).
+
+%----PropagateSync
+fof(psyn,axiom,
+( 
+	! [W,W1,W2] : ((cookie_sync(W,W1) & cookie_sync(W1,W2)) => cookie_sync(W,W2))
+)
+).
+
+%----Forward
+fof(fwd,axiom,
+( 
+	! [W,W1] : ((access_cookie(W,W1) & block_tp_cookie(W1)) => cookie_fwd(W,W1))
+)
+).
+
+%----SyncTracking
+fof(tsyn,axiom,
+( 
+	! [W,W1,W2] : ((knows(W1,W) & cookie_sync(W1,W2)) => knows(W2,W))
+)
+).
+
+%----ForwardTracking
+fof(tfwd,axiom,
+( 
+	! [W,W1,W2] : ((knows(W1,W) & cookie_fwd(W1,W2)) => knows(W2,W))
+)
+).
