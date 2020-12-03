@@ -37,13 +37,13 @@ where:
 
 ### Output
 The script produces a sequence of CSV files:
-- 'dom_blocked.txt': contains the list of domains blocked by the mitigation during the visit of the domains.
-- 'edge_tracking_flow.csv': contains the list of *Inclusion* and *Redirection* predicates.
-- 'edge_link.csv': contains the list of *Link* predicates.
-- 'edge_access.csv': contains the list of *Access* predicates.
-- 'edges_cookie_sync.csv': contains the list of *Access* predicates enriched with the *Cookie Syncing* predicates from the Bashir et al. [paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/bashir).
-- 'edge_knows.csv': contains the list of *Knows* predicates w/o considering the ones generated via cookies syncing.
-- 'edge_final.csv': contains the final list of *Knows* predicates by also considering the generation through cookie syncing.
+- dom_blocked.txt: contains the list of domains blocked by the mitigation during the visit of the domains.
+- edge_tracking_flow.csv: contains the list of *Inclusion* and *Redirection* predicates.
+- edge_link.csv: contains the list of *Link* predicates.
+- edge_access.csv: contains the list of *Access* predicates.
+- edges_cookie_sync.csv: contains the list of *Access* predicates enriched with the *Cookie Syncing* predicates from the Bashir et al. [paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/bashir).
+- edge_knows.csv: contains the list of *Knows* predicates w/o considering the ones generated via cookies syncing.
+- edge_final.csv: contains the final list of *Knows* predicates by also considering the generation through cookie syncing.
 
 The folder *Example_50* contains examples of the outputs for different mitigations for the Top 50 Alexa domains. 
 
@@ -65,14 +65,14 @@ $ python proof_problem_COPPA.py DOMAIN_REQUIRE_COPPA
 where:
 - DOMAIN_REQUIRE_COPPA: is the domain for which we want to determine if it should comply with COPPA
 
-Both scripts requires the following files to be available in the same folder: *cookie_matching_partners_bahsir.txt*, *edges_tracking_flow.csv*, and *dom_blocked.txt*. The last two files are obtained as output from 'formal_model_extraction2019.py'. The *proof_problem_generation.py* also requires the file *kids_top50.txt* that is the list of Top 50 websites for kids by Alexa.
+Both scripts requires the following files to be available in the same folder: *'cookie_matching_partners_bahsir.txt'*, *'edges_tracking_flow.csv'*, and *'dom_blocked.txt'*. The last two files are obtained as output from 'formal_model_extraction2019.py'. The *'proof_problem_COPPA.py'* also requires the file *'kids_top50.txt'* that is the list of Top 50 websites for kids by Alexa.
 
 ### Output
-The script produces a set of intermediate files (*problem_tmp.p* and *problem_no_dupl.p*) and a final file that contains the input for the prover: *problem_input.p*.
+The script produces a set of intermediate files (*'problem_tmp.p'* and *'problem_no_dupl.p'*) and a final file that contains the input for the prover: *'problem_input.p'*.
 
 ## Proof generation with GAPT
 
-Our script automatically generate a problem in the [TPTP language](http://www.tptp.org/TPTP/SyntaxBNF.html). Place the problem file *problem_input.p*, the *axioms.ax* and *axioms_coppa.ax* files (that contain the rule of the model) in the folder $GAPT_FOLDER/examples/tptp/. Given an instance of GAPT in your system you can upload and run Slakje over the problem as follow. In the folder that contains the GAPT script run the following commands:
+Our script automatically generate a problem in the [TPTP language](http://www.tptp.org/TPTP/SyntaxBNF.html). Place the problem file *'problem_input.p'*, the *'axioms.ax'* and *'axioms_coppa.ax'* files (that contain the rule of the model) in the folder '$GAPT_FOLDER/examples/tptp/'. Given an instance of GAPT in your system you can upload and run Slakje over the problem as follow. In the folder that contains the GAPT script run the following commands:
 ```sh
 $ ./gapt.sh
 gapt> val problem = TptpImporter.loadWithIncludes("examples/tptp/problem_input.p")
@@ -85,7 +85,7 @@ For more information about GAPT and Slakje refer to the official [user manual](h
 If a proof exist, the output will shows the sequence of rules to execute to obtain the desired output.
 
 ## Efficacy of mitigations
-The script *Plot_efficacy.m* plots the performance of different mitigations in terms of *Knows* and *Access* predicates obtained from the instantiation of the model.
+The MATLAB script *'Plot_efficacy.m'* plots the performance of different mitigations in terms of *Knows* and *Access* predicates obtained from the instantiation of the model.
 
 The MATLAB script reads a sequence of CSV files in the folder *CSV*:
 - *Access_graph_2016.csv*: contains the number of distinct *Access* predicates obtained from the instantiation with a certain mitigation for different Top Alexa domains visited in the 2016 DB. The mitigations are: '',G,D,A for no mitigation, Ghostery, Disconnect, and AdBlock Plus respectively.
@@ -93,5 +93,5 @@ The MATLAB script reads a sequence of CSV files in the folder *CSV*:
 - *Knows_graph_2016.csv*: contains the number of distinct *Knows* predicates obtained from the instantiation with a certain mitigation for different Top Alexa domains visited in the 2016 DB. The mitigations considered are the same as in the *Access_graph_2016.csv* file.
 - *Knows_graph_2019.csv*: contains the number of distinct *Knows* predicates obtained from the instantiation with a certain mitigation for different Top Alexa domains visited in the 2019 DB. The mitigations considered are the same as in the *Access_graph_2019.csv* file. 
 
-This data are extracted from the output files of the *formal_model_extraction.py* script.
+This data are extracted from the output files of the *'formal_model_extraction_sqlite.py'* script.
 ## License
