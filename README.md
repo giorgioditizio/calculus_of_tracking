@@ -95,3 +95,4 @@ The MATLAB script reads a sequence of CSV files in the folder *CSV*:
 
 This data are extracted from the output files of the *'formal_model_extraction_sqlite.py'* script.
 ## License
+[MIT License](LICENSE)
