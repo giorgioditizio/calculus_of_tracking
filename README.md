@@ -24,7 +24,7 @@ sudo apt install default-jre
 
 ## Instantiation of Predicates
 
-We provide a sample of a OpenWPM database (Top 100 Alexa domains only) obtained from WebCensus [here](https://drive.google.com/file/d/1OPFiTVrwzpRLBt7iSVJ_bshOEBEl1cwI/view?usp=sharing) to instantiate the model. Download the database and place it in the 'Scripts_and_Data' folder. It is possible to generate a sequence of CSV files that contain the instantiation of the model's predicates using the 'formal_model_extraction_sqlite.py' script.
+We provide a sample of a OpenWPM database (Top 100 Alexa domains only ~ 1.6GB size) obtained from WebCensus [here](https://drive.google.com/file/d/1OPFiTVrwzpRLBt7iSVJ_bshOEBEl1cwI/view?usp=sharing) to instantiate the model. Download the database and place it in the 'Scripts_and_Data' folder. It is possible to generate a sequence of CSV files that contain the instantiation of the model's predicates using the 'formal_model_extraction_sqlite.py' script.
 
 The command to execute is:
 ```sh
