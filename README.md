@@ -31,7 +31,7 @@ $ python formal_model_extraction_sqlite.py MITIGATION_NAME NUMBER_WEBSITES NEW/O
 ```
 where:
 - MITIGATION_NAME: identify the mitigation to apply for the instantiation of the predicates. Options available are: disconnect, ghostery, adblock, elep, and privacybadger for the Disconnect, Ghostery, AdBlock Plus, AdBlock Plus w/ EasyList & EasyPrivacy, and Privacy Badger mitigations respectively.
-- NUMBER_WEBSITES: identify the number of websites to consider as visited from the DB Top Alexa domains.
+- NUMBER_WEBSITES: identify the number of websites to consider as visited from the DB Top Alexa domains. We suggest to start playing with few domains.
 - NEW/OLD: identify the source of data for the mitigation. NEW will employ the blacklist from 2019. OLD will employ the blacklist from 2016 from the Bashir et al. [paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/bashir) "Tracing Information Flows Between Ad Exchanges Using Retargeted Ads" in Proc. of USENIX-16.
 
 ### Output
