@@ -10,7 +10,7 @@ The core of the repository relies in the 'Scripts_and_Data' folder. The key scri
 
 ## Setup
 
-To setup, clone this repository, create a Python 3 virtual environment and run the following command to install the package required.
+To setup, clone this repository, create a Python virtual environment and run the following command to install the package required.
 ```sh
 pip install -r requirements.txt.
 ```
