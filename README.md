@@ -32,7 +32,12 @@ $ python formal_model_extraction_sqlite.py MITIGATION_NAME NUMBER_WEBSITES NEW/O
 where:
 - MITIGATION_NAME: identify the mitigation to apply for the instantiation of the predicates. Options available are: disconnect, ghostery, adblock, elep, and privacybadger for the Disconnect, Ghostery, AdBlock Plus, AdBlock Plus w/ EasyList & EasyPrivacy, and Privacy Badger mitigations respectively.
 - NUMBER_WEBSITES: identify the number of websites to consider as visited from the DB Top Alexa domains. We suggest to start playing with few domains.
-- NEW/OLD: identify the source of data for the mitigation. NEW will employ the blacklist from 2019. OLD will employ the blacklist from 2016 from the Bashir et al. [paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/bashir) "Tracing Information Flows Between Ad Exchanges Using Retargeted Ads" in Proc. of USENIX-16.
+- NEW/OLD: identify the source of data for the mitigation. Use new to employ the blacklist from 2019. Use old to employ the blacklist from 2016 from the Bashir et al. [paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/bashir) "Tracing Information Flows Between Ad Exchanges Using Retargeted Ads" in Proc. of USENIX-16.
+
+An example
+```sh
+$ python formal_model_extraction_sqlite.py disconnect 30 new
+```
 
 ### Output
 The script produces a sequence of CSV files:
@@ -65,6 +70,17 @@ where:
 - DOMAIN_REQUIRE_COPPA: is the domain for which we want to determine if it should comply with COPPA
 
 Both scripts requires the following files to be available in the same folder: *'cookie_matching_partners_bahsir.txt'*, *'edges_tracking_flow.csv'*, and *'dom_blocked.txt'*. The last two files are obtained as output from 'formal_model_extraction2019.py'. The *'proof_problem_COPPA.py'* also requires the file *'kids_top50.txt'* that is the list of Top 50 websites for kids by Alexa.
+
+An example
+```sh
+$ python proof_problem_generation.py fbcdn.net facebook.com
+```
+
+or 
+
+```sh
+$ python proof_problem_COPPA.py flashtalking.com
+```
 
 ### Output
 The script produces a set of intermediate files (*'problem_tmp.p'* and *'problem_no_dupl.p'*) and a final file that contains the input for the prover: *'problem_input.p'*.
