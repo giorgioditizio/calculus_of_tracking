@@ -47,7 +47,7 @@ The script produces a sequence of CSV files:
 The folder *Example_50* contains examples of the outputs for different mitigations for the Top 50 Alexa domains. 
 
 ## TPTP Problem generation
-**After** running the 'formal_model_extraction2019.py', it is possible to generate a TPTP problem to determine a proof for a *Knows* or a *req_COPPA* predicate for Slakje by running the following script:
+**After** running the 'formal_model_extraction_sqlite.py', it is possible to generate a TPTP problem to determine a proof for a *Knows* or a *req_COPPA* predicate for Slakje by running the following script:
 
 ```sh
 $ python proof_problem_generation.py DOMAIN_TRACKER DOMAIN_TRACKED
