@@ -71,7 +71,7 @@ The script produces a set of intermediate files (*'problem_tmp.p'* and *'problem
 
 ## Proof generation with GAPT
 
-Our script automatically generate a problem in the [TPTP language](http://www.tptp.org/TPTP/SyntaxBNF.html). Place the problem file *'problem_input.p'*, the *'axioms.ax'* and *'axioms_coppa.ax'* files (that contain the rule of the model) in the folder '$GAPT_FOLDER/examples/tptp/'. Given an instance of GAPT in your system you can upload and run Slakje over the problem as follow. In the folder that contains the GAPT script run the following commands:
+Our script automatically generate a problem in the [TPTP language](http://www.tptp.org/TPTP/SyntaxBNF.html). Place the problem file *'problem_input.p'*, the *'axioms.ax'* and *'axioms_coppa.ax'* files (that contain the rules of the model) in the folder '$GAPT_FOLDER/examples/tptp/'. Given an instance of GAPT in your system you can upload and run Slakje over the problem as follow. In the folder that contains the GAPT script run the following commands:
 ```sh
 $ ./gapt.sh
 gapt> val problem = TptpImporter.loadWithIncludes("examples/tptp/problem_input.p")
