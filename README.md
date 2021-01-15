@@ -55,7 +55,7 @@ The folder *Example_50* contains examples of the outputs for different mitigatio
 **After** running the 'formal_model_extraction_sqlite.py', it is possible to generate a TPTP problem to determine a proof for a *Knows* or a *req_COPPA* predicate for Slakje by running the following script:
 
 ```sh
-$ python proof_problem_generation.py DOMAIN_TRACKER DOMAIN_TRACKED
+$ python proof_problem_generator.py DOMAIN_TRACKER DOMAIN_TRACKED
 ```
 where:
 - DOMAIN_TRACKER: is the domain that will be able to track users on the DOMAIN_TRACKED
@@ -73,7 +73,7 @@ Both scripts requires the following files to be available in the same folder: *'
 
 An example
 ```sh
-$ python proof_problem_generation.py fbcdn.net facebook.com
+$ python proof_problem_generator.py fbcdn.net facebook.com
 ```
 
 or 
