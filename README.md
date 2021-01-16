@@ -1,5 +1,5 @@
 # A Calculus of Tracking: Theory and Practice
-This repository contains scripts and a fragment of a database to complement the paper "A Calculus of Tracking: Theory and Practice", to appear in PETS 2021. The scripts enable the extraction of ground data from the database and the instantiation of the model to evaluate efficiency of different privacy mitigations (AdBlock Plus, Disconnect, etc.) as well as to formally prove tracking practices and COPPA compliance requirements. Below you find examples data with detailed instructions as well as steps to reproduce the key figures in our paper.
+This repository contains scripts and a fragment of a database to complement the paper "A Calculus of Tracking: Theory and Practice", to appear in PETS 2021 [Author's preprint](https://giorgioditizio.github.io/papers/calculus_pets2021.pdf). The scripts enable the extraction of ground data from the database and the instantiation of the model to evaluate efficiency of different privacy mitigations (AdBlock Plus, Disconnect, etc.) as well as to formally prove tracking practices and COPPA compliance requirements. Below you find examples data with detailed instructions as well as steps to reproduce the key figures in our paper.
 
 ## Scripts quick description
 The core of the repository relies in the 'Scripts_and_Data' folder. The key scripts are:
@@ -98,6 +98,9 @@ gapt> prooftool(proof)
 For more information about GAPT and Slakje refer to the official [user manual](https://www.logic.at/gapt/downloads/gapt-user-manual.pdf). 
 
 If a proof exist, the output will shows the sequence of rules to execute to obtain the desired output.
+
+### Timing for Proof Generation
+The time required for the generation of a successful proof ranges from few seconds (`NUMBER_WEBSITES`~ 5-50) to several minutes (`NUMBER_WEBSITES`~ 100). Please refer to Section 5 and Tab.6 in the paper for further details.
 
 ## Efficacy of mitigations
 The MATLAB script `Plot_efficacy.m` plots the performance of different mitigations in terms of *Knows* and *Access* predicates obtained from the instantiation of the model.
