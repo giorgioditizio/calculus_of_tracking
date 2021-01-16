@@ -102,6 +102,25 @@ If a proof exist, the output will shows the sequence of rules to execute to obta
 ### Timing for Proof Generation
 The time required for the generation of a successful proof ranges from few seconds (`NUMBER_WEBSITES`~ 5-50) to several minutes (`NUMBER_WEBSITES`~ 100). Please refer to Section 5 and Tab.6 in the paper for further details.
 
+### Example of expected GAPT's output
+```sh
+gapt> val problem = TptpImporter.loadWithIncludes("examples/tptp/problem_input.p")
+problem: gapt.formats.tptp.TptpFile =
+fof(var1, axiom, includeContent('google.com', 'google.com')).
+fof(var2, axiom, redirect('google.com', 'google.com')).
+fof(var3, axiom, redirect('google.com', '')).
+fof(var4, axiom, includeContent('google.com', 'gstatic.com')).
+fof(var5, axiom, includeContent('youtube.com', 'youtube.com')).
+fof(var6, axiom, redirect('youtube.com', 'youtube.com')).
+fof(var7, axiom, redirect('youtube.com', '')).
+fof(var8, axiom, includeContent('youtube.com', 'ggpht.com')).
+fof(var9, axiom, includeContent('youtube.com', 'ytimg.com')).
+fof(var10, axiom, includeContent('youtube.com', 'gstatic.com')).
+fof(var11, axiom, includeContent('youtube.com', 'doubleclick.net')).
+fof(var12, axiom, includeContent('youtube.com', 'google.com')).
+fof(var13, axio...
+```
+
 ## Efficacy of mitigations
 The MATLAB script `Plot_efficacy.m` plots the performance of different mitigations in terms of *Knows* and *Access* predicates obtained from the instantiation of the model.
 
