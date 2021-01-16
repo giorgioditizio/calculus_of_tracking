@@ -103,6 +103,8 @@ If a proof exist, the output will shows the sequence of rules to execute to obta
 The time required for the generation of a successful proof ranges from few seconds (`NUMBER_WEBSITES`~ 5-50) to several minutes (`NUMBER_WEBSITES`~ 100). Please refer to Section 5 and Tab.6 in the paper for further details.
 
 ### Example of expected GAPT's output
+
+We provide an example of the correct execution of GAPT with its output:
 ```sh
 gapt> val problem = TptpImporter.loadWithIncludes("examples/tptp/problem_input.p")
 problem: gapt.formats.tptp.TptpFile =
@@ -119,6 +121,49 @@ fof(var10, axiom, includeContent('youtube.com', 'gstatic.com')).
 fof(var11, axiom, includeContent('youtube.com', 'doubleclick.net')).
 fof(var12, axiom, includeContent('youtube.com', 'google.com')).
 fof(var13, axio...
+```
+
+```sh
+gapt> val final_problem = problem.toSequent
+final_problem: gapt.proofs.HOLSequent =
+includeContent('google.com', 'google.com'),
+redirect('google.com', 'google.com'),
+redirect('google.com', ''),
+includeContent('google.com', 'gstatic.com'),
+includeContent(#c('youtube.com': i), #c('youtube.com': i)),
+redirect(#c('youtube.com': i), #c('youtube.com': i)),
+redirect(#c('youtube.com': i), ''),
+includeContent(#c('youtube.com': i), 'ggpht.com'),
+includeContent(#c('youtube.com': i), #c('ytimg.com': i)),
+includeContent(#c('youtube.com': i), 'gstatic.com'),
+includeContent(#c('youtube.com': i), 'doubleclick.net'),
+includeContent(#c('youtube.com': i), 'google.com'),
+includeContent('facebook.com', 'facebook.com'),
+redirect('facebook.com', 'facebook.com'),
+redirect('facebook.com', ''),
+includeContent('facebook.com', 'fbc...
+```
+
+```sh
+gapt> val proof = Slakje.getLKProof(final_problem)
+proof: Option[gapt.proofs.lk.LKProof] =
+Some([p19] ∀W
+  ∀W1
+  (#c(visit: i>o)(W) ∧ access(W, W1) ∧ ¬block_tp_cookie(W1) → knows(W1, W)),
+#c(visit: i>o)('qq.com'),
+∀W ∀W1 (link(W, W1) ∧ ¬block_requests(W1) → access(W, W1)),
+∀W ∀W1 (includeContent(W, W1) → link(W, W1)),
+includeContent('qq.com', 'revsci.net'),
+¬block_requests('revsci.net'),
+¬block_tp_cookie('revsci.net')
+⊢
+knows('revsci.net', 'qq.com')    (ForallLeftRule(p18, Ant(0), ∀W1 (#c(visit: i>o)(W) ∧ access(W, W1) ∧ ¬block_tp_cookie(W1) → knows(W1, W)), 'qq.com', W))
+[p18] ∀W1
+  (#c(visit: i>o)('qq.com') ∧ access('qq.com', W1) ∧ ¬block_tp_cookie(W1) →
+    knows(W1, 'qq.com')),
+#c(visit: i>o)('qq.com'),
+∀W ∀W1 (link(W, W1) ∧ ¬block_requests(W1) → access(W, W1)),
+∀W ∀W1 (includeContent(W, W1) → link(W, W1)),...
 ```
 
 ## Efficacy of mitigations
