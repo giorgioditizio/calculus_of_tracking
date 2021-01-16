@@ -16,7 +16,7 @@ pip install -r requirements.txt.
 ```
 
 To obtain the proof we employed General Architecture for Proof Theory (GAPT). You can download the lastest release and the user manual [here](https://www.logic.at/gapt/). Later we provide the sequence of commands required to generate a proof from the output of the scripts using GAPT.
-GAPT requires Java to correctly run. You can install it as follow (for Linux):
+GAPT requires Java to correctly run (tested with OpenJDK 11.0.9.1). You can install it as follow (for Linux):
 ```sh
 sudo apt install default-jre
 ```
