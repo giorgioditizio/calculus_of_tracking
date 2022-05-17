@@ -1,4 +1,6 @@
 # A Calculus of Tracking: Theory and Practice
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4444797.svg)](https://doi.org/10.5281/zenodo.4444797)
+
 This repository contains scripts and a fragment of a database to complement the paper "A Calculus of Tracking: Theory and Practice", to appear in PETS 2021 ([accepted manuscript](https://petsymposium.org/2021/files/papers/issue2/popets-2021-0027.pdf)). The scripts enable the extraction of ground data from the database and the instantiation of the model to evaluate efficiency of different privacy mitigations (AdBlock Plus, Disconnect, etc.) as well as to formally prove tracking practices and COPPA compliance requirements. Below you find examples data with detailed instructions as well as steps to reproduce the key figures in our paper.
 
 ## Scripts quick description
